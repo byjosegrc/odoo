@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_writer,perm_create,perm_unlink
+access_paises_pais,paises.pais,model_paises_pais,,1,1,1,1

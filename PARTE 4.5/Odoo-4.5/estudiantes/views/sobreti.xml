@@ -1,0 +1,114 @@
+<odoo>
+  <data>
+
+<!-- 2 -->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="sobreti_list">
+      <field name="name">DATOS PERSONALES</field>
+      <field name="model">estudiantes.sobreti</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tuNombre"/>
+          <field name="tuApellido"/>
+		      <field name="aficion"/>
+          <field name="tuEdad"/>
+          <field name="eresInformatico"/>
+          <field name="edadMinima"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- vista de formulario -->
+
+    <record model="ir.ui.view" id="sobreti_form">
+      <field name="name">LISTA DATOS PERSONALES</field>
+      <field name="model">estudiantes.sobreti</field>
+      <field name="arch" type="xml">
+        <form>
+			<group>
+          <field name="tuNombre"/>
+          <field name="tuApellido"/>
+		      <field name="aficion"/>
+          <field name="tuEdad"/>
+          <field name="eresInformatico"/>
+          <field name="edadMinima"/>
+			</group>
+        </form>
+      </field>
+    </record>
+
+
+        <!-- explicit list SEARCH -->
+
+    <record model="ir.ui.view" id="sobreti_search">
+      <field name="name">BUSQUEDA SOBRE TI</field>
+      <field name="model">estudiantes.sobreti</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="tuNombre"/>
+          <field name="tuApellido"/>
+		      <field name="aficion"/>
+          <field name="tuEdad"/>
+          <field name="eresInformatico"/>
+          <field name="edadMinima"/>
+		  
+		  <group expand="1" string="Group by">
+			<filter string="Tu edad" name="tuEdad" domain="[]" context="{'group by':'tuEdad'}"/>
+		  </group>
+		  <filter string="Eres Imformatico" name="eresInformatico" domain="[('eresInformatico','=','si')]"/>
+        </search>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="estudiantes.action_window_sobreti">
+      <field name="name">Lista de estudiantes</field>
+      <field name="res_model">estudiantes.sobreti</field>
+      <field name="view_mode">tree,form,search</field>
+    </record>
+
+
+
+
+
+
+
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="estudiantes.action_server">
+      <field name="name">estudiantes server</field>
+      <field name="model_id" ref="model_estudiantes_estudiantes"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+   <!-- <menuitem name="estudiantes" id="estudiantes.menu_root"/>-->
+
+    <!-- menu categories -->
+
+  <!-- <menuitem name="Menu 1" id="estudiantes.menu_1" parent="estudiantes.menu_root"/> -->
+  <!--  <menuitem name="Menu 2" id="estudiantes.menu_2" parent="estudiantes.menu_root"/>-->
+
+    <!-- actions -->
+
+    <menuitem name="Listado Sobre ti" id="sobreti_menu_1" parent="estudiantes.menu_1"
+              action="estudiantes.action_window_sobreti"/>
+   <!-- <menuitem name="Server to list" id="estudiantes" parent="estudiantes.menu_2"
+              action="estudiantes.action_server"/>-->
+
+  </data>
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_asignaturas_estudiantes,asignaturas.estudiantes,model_estudiantes_asignaturas,base.group_user,1,1,1,1
+access_sobreti_estudiantes,sobreti.estudiantes,model_estudiantes_sobreti,base.group_user,1,1,1,1
+access_mascotas_estudiantes,mascotas.estudiantes,model_estudiantes_mascotas,base.group_user,1,1,1,1
+
+
+

@@ -1,0 +1,114 @@
+<odoo>
+  <data>
+
+    <!-- 3 -->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="mascotas_list">
+      <field name="name">DATOS DE TUS MASCOTAS</field>
+      <field name="model">estudiantes.mascotas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tuNombre"/>
+		      <field name="tuApellido"/>
+          <field name="mascota"/>
+          <field name="mascotaNombre"/>
+          <field name="numeroMascotas"/>
+          <field name="favorito"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- vista de formulario -->
+
+    <record model="ir.ui.view" id="mascotas_form">
+      <field name="name">LISTA DE MASCOTAS</field>
+      <field name="model">estudiantes.mascotas</field>
+      <field name="arch" type="xml">
+        <form>
+			<group>
+          <field name="tuNombre"/>
+		      <field name="tuApellido"/>
+          <field name="mascota"/>
+          <field name="mascotaNombre"/>
+          <field name="numeroMascotas"/>
+          <field name="favorito"/>
+			</group>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- explicit list SEARCH -->
+
+    <record model="ir.ui.view" id="mascotas_search">
+      <field name="name">BUSQUEDA DE MASCOTAS</field>
+      <field name="model">estudiantes.mascotas</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="tuNombre"/>
+		      <field name="tuApellido"/>
+          <field name="mascota"/>
+          <field name="mascotaNombre"/>
+          <field name="numeroMascotas"/>
+          <field name="favorito"/>
+		  
+		  <group expand="1" string="Group by">
+			<filter string="Numero de mascotas" name="numeroMascotas" domain="[]" context="{'group by':'numeroMascotas'}"/>
+		  </group>
+		  <filter string="El animal es perro" name="favorito" domain="[('favorito','=','perro')]"/>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="estudiantes.action_window_mascotas">
+      <field name="name">Lista de estudiantes</field>
+      <field name="res_model">estudiantes.mascotas</field>
+      <field name="view_mode">tree,form,search</field>
+    </record>
+
+
+
+
+
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="estudiantes.action_server">
+      <field name="name">estudiantes server</field>
+      <field name="model_id" ref="model_estudiantes_estudiantes"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+   <!-- <menuitem name="estudiantes" id="estudiantes.menu_root"/> -->
+
+    <!-- menu categories -->
+
+  <!--  <menuitem name="Menu 1" id="estudiantes.menu_1" parent="estudiantes.menu_root"/>-->
+  <!--  <menuitem name="Menu 2" id="estudiantes.menu_2" parent="estudiantes.menu_root"/>-->
+
+    <!-- actions -->
+
+    <menuitem name="Listado de Mascotas" id="mascotas_menu_1" parent="estudiantes.menu_1"
+              action="estudiantes.action_window_mascotas"/>
+   <!-- <menuitem name="Server to list" id="estudiantes" parent="estudiantes.menu_2"
+              action="estudiantes.action_server"/>-->
+
+  </data>
+</odoo>

@@ -1,0 +1,62 @@
+
+<?xml version="1.0" encodig="utf-8"?>
+
+<odoo>
+    <!-- vista de tipo arbol o lista -->
+    <record id="paises.list" model="ir.ui.view">
+        <fiel name="name"> view.tree.paises</fiel>
+        <fiel name="model">paises.pais</fiel>
+        <fiel name="arch" type="xml">
+            <tree>
+                <fiel name="name"/>
+                <fiel name="capital"/>
+                <fiel name="continente"/>
+            </tree>
+        
+        </fiel>
+    </record>
+
+
+
+
+
+    <!-- vista de tipo formulario -->
+    <record id="view_form_paises" model="ir.ui.view">
+        <fiel name="name"> view.from.paises</fiel>
+        <fiel name="model">paises.pais</fiel>
+        <fiel name="arch" type="xml">
+            <from>
+                <group>
+                    <fiel name="name" string="Nombre del pais"/>
+                    <fiel name="capital" string="Capital del pais"/>
+                    <fiel name="continente" string="Continente al que pertenece el pais"/>
+                </group>
+            </from>
+        
+        </fiel>
+    </record>
+
+
+     <!-- creacion accion ventana -->
+
+    <record id="accion_view_paises" model="ir.actions.act_window">
+        <fiel name="name"> Lista de paises</fiel>
+        <fiel name="model">paises.pais</fiel>
+        <fiel name="view_mode">tree, from</fiel>
+    </record>
+
+
+
+
+ <!-- creacion accion ventana -->
+
+
+ <menuitem id="menu_paises" parent="" action="paises.action_vieww_paises"/>
+
+
+
+
+
+
+
+</odoo>
